@@ -1,4 +1,4 @@
-# dio-live-dynamodb
+# Desafio de Código Bootcamp Java Developer
 Desafio de código com o Amazon DynamoDB, referente ao Bootcamp Banco Pan Java Developer.
 Abaixo segue a implementação de uma tabela adicional, Filme, realizada como parte da avaliação
 deste desafio de código.
