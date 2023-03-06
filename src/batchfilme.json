@@ -1,0 +1,34 @@
+{
+    "Filme": [
+        {
+            "PutRequest": {
+                "Item": {
+                   "Titulo": {"S": "Matrix"},
+  		   "Produtora": {"S": "New Line Cinema"},
+             	   "Ano": {"S": "2001"},
+                   "Genero": {"S": "Ficção"}
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                   "Titulo": {"S": "Senhor dos Anéis: A sociedade do anel"},
+  		   "Produtora": {"S": "New Line Cinema"},
+             	   "Ano": {"S": "2003"},
+                   "Genero": {"S": "Ficção"}
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                  "Titulo": {"S": "Batmam Begins"},
+  		   "Produtora": {"S": "Warner"},
+             	   "Ano": {"S": "2004"},
+                   "Genero": {"S": "Ficção"}
+                }
+            }
+        }
+      ]
+}
