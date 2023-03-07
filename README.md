@@ -7,7 +7,52 @@ deste desafio de código.
   - Amazon DynamoDB
   - Amazon CLI para execução em linha de comando
 
-### Comandos para execução do experimento:
+
+### Tabela Filmes
+
+ Criar tabela Filme
+
+```
+aws dynamodb create-table \
+    --table-name Filme \
+    --attribute-definitions \
+        AttributeName=Titulo,AttributeType=S \
+        AttributeName=Produtora,AttributeType=S \
+    --key-schema \
+        AttributeName=Titulo,KeyType=HASH \
+        AttributeName=Produtora,KeyType=RANGE \
+    --provisioned-throughput \
+        ReadCapacityUnits=10,WriteCapacityUnits=5
+```
+
+- Inserir um item (FILME)
+
+```
+aws dynamodb put-item \
+    --table-name Filme \
+    --item file://itemfilme.json \
+```
+
+- Inserir múltiplos itens (FILMES)
+
+```
+aws dynamodb batch-write-item \
+    --request-items file://batchfilme.json
+```
+
+- Pesquisar item(Filme) Título 
+
+```
+aws dynamodb query \
+    --table-name Filme \
+    --key-condition-expression "Titulo = :titulo" \
+    --expression-attribute-values  '{":titulo":{"S":"Batmam Begins"}}'
+
+
+
+
+
+### Comandos para execução do experimento(Aula):
 
 
 - Criar uma tabela
@@ -123,44 +168,5 @@ aws dynamodb query \
     --key-condition-expression "SongTitle = :v_song and SongYear = :v_year" \
     --expression-attribute-values  '{":v_song":{"S":"Wasting Love"},":v_year":{"S":"1992"} }'
 ```
-### Tabela Filmes
-
- Criar tabela Filme
-
-```
-aws dynamodb create-table \
-    --table-name Filme \
-    --attribute-definitions \
-        AttributeName=Titulo,AttributeType=S \
-        AttributeName=Produtora,AttributeType=S \
-    --key-schema \
-        AttributeName=Titulo,KeyType=HASH \
-        AttributeName=Produtora,KeyType=RANGE \
-    --provisioned-throughput \
-        ReadCapacityUnits=10,WriteCapacityUnits=5
-```
-
-- Inserir um item (FILME)
-
-```
-aws dynamodb put-item \
-    --table-name Filme \
-    --item file://itemfilme.json \
-```
-
-- Inserir múltiplos itens (FILMES)
-
-```
-aws dynamodb batch-write-item \
-    --request-items file://batchfilme.json
-```
-
-- Pesquisar item(Filme) Título 
-
-```
-aws dynamodb query \
-    --table-name Filme \
-    --key-condition-expression "Titulo = :titulo" \
-    --expression-attribute-values  '{":titulo":{"S":"Batmam Begins"}}'
 ```
 
